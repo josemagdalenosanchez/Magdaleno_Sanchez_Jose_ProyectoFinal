@@ -53,6 +53,9 @@
               echo "<td>".$obj->Tipo."</td>";
               echo "<td>".$obj->EMail."</td>";
               echo "<td>".
+                   "<a href=borrado.php?id=$obj->IDMiem>"."<img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
+                   "<a href=aumentoprivilegios.php?id=$obj->IDMiem>"."<img src='../imagenes/aumentar.png' width=15px heigth=15px>".
+                   "<a href=reducir.php?id=$obj->IDMiem>"."<img src='../imagenes/degradar.gif' width=15px heigth=15px>".
                    "</td>";
               echo "</tr>";
           }
