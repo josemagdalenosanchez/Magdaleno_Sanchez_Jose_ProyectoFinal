@@ -13,14 +13,16 @@ font-family: 'Helvetica', sans-serif;
 border-radius: 50px; 
 }
 
+
 #datos {
+margin-top: 100px;    
 float: right;
 margin-right: 100px
     
-};
+}
 
 #imagen {
 float: left;
 margin-left: 100px;
-width: 500    
-};
+width: 500px;   
+}
