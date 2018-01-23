@@ -8,6 +8,44 @@
 </head>
 
 <body>
+    <?php
+        //FORM SUBMITTED
+        if (isset($_POST["user"])) {
+          //CREATING THE CONNECTION
+          $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+          //TESTING IF THE CONNECTION WAS RIGHT
+          if ($connection->connect_errno) {
+              printf("Connection failed: %s\n", $connection->connect_error);
+              exit();
+          }
+          
+          
+          //MAKING A SELECT QUERY
+          //Password coded with md5 at the database. Look for better options
+          $consulta="select * from Miembros where
+          Nombre='".$_POST["user"]."' and Pass=md5('".$_POST["pass"]."');";
+            
+        
+            
+          //Test if the query was correct
+          //SQL Injection Possible
+          //Check http://php.net/manual/es/mysqli.prepare.php for more security
+          if ($result = $connection->query($consulta)) {
+              //No rows returned
+              if ($result->num_rows===0) {
+                echo "LOGIN INVALIDO";
+                session_destroy();  
+              } else {
+                //VALID LOGIN. SETTING SESSION VARS
+                $_SESSION["user"]=$_POST["user"];
+                $_SESSION["language"]="es";
+                header("Location: panel.php");
+              }
+          } else {
+            echo "Wrong Query";
+          }
+      }
+    ?>
     <div id="general">
         <h1>PROGRAMA DE GESTION MIDGARD</h1>
         <div id="banner">
@@ -16,14 +54,14 @@
                 <div id="bregistro"><a href="registro.php" target="_blank" class="boton">¡REGISTRATE YA!</a></div>
             </div>
             <div id="datos">
-                <form action="/my-handling-form-page" method="post">
+                <form method="post">
                 <div>
-                     <label for="name">Name:</label>
-                     <input type="text" id="name" />
+                     <label for="mail">Nombre:</label>
+                     <input type="text" name="user" />
                 </div>
                 <div>
-                     <label for="mail">E-mail:</label>
-                     <input type="email" id="mail" />
+                     <label for="mail">Password:</label>
+                     <input type="password" name="pass" />
                 </div>
                 <div>
                      <input type="submit" id="Acceder" name="Acceder" class="boton" />
