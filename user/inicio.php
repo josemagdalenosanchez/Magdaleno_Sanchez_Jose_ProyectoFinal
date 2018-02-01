@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -23,8 +26,7 @@
           //MAKING A SELECT QUERY
           //Password coded with md5 at the database. Look for better options
           $consulta="select * from Miembros where
-          Nombre='".$_POST["user"]."' and Pass=md5('".$_POST["pass"]."');";
-            
+          Nombre='".$_POST["user"]."' and Pass=md5('".$_POST["pass"]."');";         
         
             
           //Test if the query was correct
@@ -37,14 +39,23 @@
                 session_destroy();  
               } else {
                 //VALID LOGIN. SETTING SESSION VARS
+                $obj = $result->fetch_object();
                 $_SESSION["user"]=$_POST["user"];
                 $_SESSION["language"]="es";
-                header("Location: panel.php");
+                $_SESSION["tipo"]=$obj->Tipo;
+                var_dump($_SESSION);
+                if ($obj->Tipo == "Usuario"){
+                    header('Location: panel.php');    
+                }  
+                else {
+                    header('Location: ../admin/Panel-ADMIN.php');
+                }
               }
-          } else {
+           } else {
             echo "Wrong Query";
+           }
           }
-      }
+  
     ?>
     <div id="general">
         <h1>PROGRAMA DE GESTION MIDGARD</h1>

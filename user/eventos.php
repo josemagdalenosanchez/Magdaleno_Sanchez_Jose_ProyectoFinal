@@ -2,14 +2,14 @@
     session_start();
 
     if (isset($_SESSION["user"])) {
-        if ($_SESSION["tipo"]!="Administrador") {
+        if ($_SESSION["tipo"]!="Usuario") {
             session_destroy();
             header("Location: inicio.php");        
         }
     } 
     else {      
         session_destroy();
-        header("Location: panel.php");
+        header("Location: inicio.php");
     }
 ?>
 <!DOCTYPE html>
@@ -34,25 +34,24 @@
 
       //MAKING A SELECT QUERY
       /* Consultas de selección que devuelven un conjunto de resultados */
-      if ($result = $connection->query("select * from Miembros;")) {
+      if ($result = $connection->query("select * from Eventos;")) {
 
          
 
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table style="border:1px solid black">
+        <div class="tablasolo">  
+        <table style="border:1px solid black">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Apellidos</th>
-              <th>Fecha de Nacimiento</th>
-              <th>Fecha de Ingreso</th>
-              <th>Tipo</th>
-              <th>E-Mail</th>
-              <th>ACCIONES</th>    
+              <th>Organizador</th>
+              <th>Fecha del Evento</th>
+              <th>Lugar</th>
+              <th>Precio</th>
+              
           </thead>
-
+        </div>
       <?php
 
           //FETCHING OBJECTS FROM THE RESULT SET
@@ -60,17 +59,11 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-              echo "<td>".$obj->Nombre."</td>";
-              echo "<td>".$obj->Apellidos."</td>";
-              echo "<td>".$obj->FechaNacimiento."</td>";
-              echo "<td>".$obj->FechaIngreso."</td>";
-              echo "<td>".$obj->Tipo."</td>";
-              echo "<td>".$obj->EMail."</td>";
-              echo "<td>".
-                   "<a href=borrado.php?id=$obj->IDMiem>"."<img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
-                   "<a href=aumentoprivilegios.php?id=$obj->IDMiem>"."<img src='../imagenes/aumentar.png' width=15px heigth=15px>".
-                   "<a href=reducir.php?id=$obj->IDMiem>"."<img src='../imagenes/degradar.gif' width=15px heigth=15px>".
-                   "</td>";
+              echo "<td>".$obj->Organizador."</td>";
+              echo "<td>".$obj->FechaEvento."</td>";
+              echo "<td>".$obj->Lugar."</td>";
+              echo "<td>".$obj->Precio."</td>";
+                            
               echo "</tr>";
           }
 

@@ -17,7 +17,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de Reparaciones</title>
+    <title>Gestion de Tareas</title>
   </head>
   <body>
     <?php
@@ -34,7 +34,7 @@
 
       //MAKING A SELECT QUERY
       /* Consultas de selección que devuelven un conjunto de resultados */
-      if ($result = $connection->query("select * from Miembros;")) {
+      if ($result = $connection->query("select p.Concepto, p.Cantidad, p.FechaPago, m.Nombre from Pagos p join Miembros m on p.IDMiem = m.IDMiem   ;")) {
 
          
 
@@ -44,12 +44,11 @@
           <table style="border:1px solid black">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Apellidos</th>
-              <th>Fecha de Nacimiento</th>
-              <th>Fecha de Ingreso</th>
-              <th>Tipo</th>
-              <th>E-Mail</th>
+              <th>Concepto</th>
+              <th>Cantidad</th>
+              <th>Fecha de Pago</th>
+              <th>Miembro</th>
+              
               <th>ACCIONES</th>    
           </thead>
 
@@ -60,15 +59,13 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
+              echo "<td>".$obj->Concepto."</td>";
+              echo "<td>".$obj->Cantidad."</td>";
+              echo "<td>".$obj->FechaPago."</td>";
               echo "<td>".$obj->Nombre."</td>";
-              echo "<td>".$obj->Apellidos."</td>";
-              echo "<td>".$obj->FechaNacimiento."</td>";
-              echo "<td>".$obj->FechaIngreso."</td>";
-              echo "<td>".$obj->Tipo."</td>";
-              echo "<td>".$obj->EMail."</td>";
               echo "<td>".
-                   "<a href=borrado.php?id=$obj->IDMiem>"."<img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
-                   "<a href=aumentoprivilegios.php?id=$obj->IDMiem>"."<img src='../imagenes/aumentar.png' width=15px heigth=15px>".
+                   "<a href=avisar.php?id=$obj->IDMiem>"."<img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
+                   "<a href=ilegios.php?id=$obj->IDMiem>"."<img src='../imagenes/aumentar.png' width=15px heigth=15px>".
                    "<a href=reducir.php?id=$obj->IDMiem>"."<img src='../imagenes/degradar.gif' width=15px heigth=15px>".
                    "</td>";
               echo "</tr>";

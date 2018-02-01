@@ -82,8 +82,7 @@
 
             $query = "INSERT INTO Miembros (Nombre, Apellidos, FechaNacimiento, FechaIngreso, EMail, Pass)
             VALUES ('$_POST[nom]','$_POST[ape]','$_POST[fdn]','$_POST[fdi]','$_POST[mail]', '$hash')";
-            echo $query;    
-
+            
             if ($conexion->query($query) === TRUE) {
  
             echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";

@@ -2,14 +2,14 @@
     session_start();
 
     if (isset($_SESSION["user"])) {
-        if ($_SESSION["tipo"]!="Administrador") {
+        if ($_SESSION["tipo"]!="Usuario") {
             session_destroy();
             header("Location: inicio.php");        
         }
     } 
     else {      
         session_destroy();
-        header("Location: panel.php");
+        header("Location: inicio.php");
     }
 ?>
 <!DOCTYPE html>
@@ -17,6 +17,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos/1.css">
     <title>Gestion de Reparaciones</title>
   </head>
   <body>
@@ -34,25 +35,23 @@
 
       //MAKING A SELECT QUERY
       /* Consultas de selección que devuelven un conjunto de resultados */
-      if ($result = $connection->query("select * from Miembros;")) {
-
+      if ($result = $connection->query("select * from Tareas t join Informe i on t.IDTarea = i.IDTarea join Miembros m on i.IDMiem = m.IDMiem where m.Nombre ='".$_SESSION["user"]."'  ;")) {
+            
          
 
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table style="border:1px solid black">
+          
+        <table class="tablasolo">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Apellidos</th>
-              <th>Fecha de Nacimiento</th>
-              <th>Fecha de Ingreso</th>
-              <th>Tipo</th>
-              <th>E-Mail</th>
-              <th>ACCIONES</th>    
+              <th>Descripcion</th>
+              <th>Fecha de la Tarea</th>
+            </tr>  
+          
           </thead>
-
+              
       <?php
 
           //FETCHING OBJECTS FROM THE RESULT SET
@@ -60,18 +59,11 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-              echo "<td>".$obj->Nombre."</td>";
-              echo "<td>".$obj->Apellidos."</td>";
-              echo "<td>".$obj->FechaNacimiento."</td>";
-              echo "<td>".$obj->FechaIngreso."</td>";
-              echo "<td>".$obj->Tipo."</td>";
-              echo "<td>".$obj->EMail."</td>";
-              echo "<td>".
-                   "<a href=borrado.php?id=$obj->IDMiem>"."<img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
-                   "<a href=aumentoprivilegios.php?id=$obj->IDMiem>"."<img src='../imagenes/aumentar.png' width=15px heigth=15px>".
-                   "<a href=reducir.php?id=$obj->IDMiem>"."<img src='../imagenes/degradar.gif' width=15px heigth=15px>".
-                   "</td>";
+              echo "<td>".$obj->Descripcion."</td>";
+              echo "<td>".$obj->FechaTarea."</td>";
+                                        
               echo "</tr>";
+              
           }
 
           //Free the result. Avoid High Memory Usages
@@ -82,5 +74,6 @@
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 
     ?>
+      </table>
   </body>
 </html>
