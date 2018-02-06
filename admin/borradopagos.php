@@ -22,19 +22,12 @@
       /* Consultas de selección que devuelven un conjunto de resultados */
      
       $query1 = "SET FOREIGN_KEY_CHECKS=0";
-      echo "$query1";
       $connection->query($query1);
-          
-           
-            
+      $query2 = "delete from Pagos where IDPag ='".$_GET['id']."'";
       
-      
-      
-      $query2 = "delete from Miembros where IDMiem ='".$_GET['id']."'";
-      echo "$query2";
       if ($result = $connection->query($query2)) {  
           
-          header('Location: Usuarios-ADMIN.php'); 
+          header('Location: Pagos-ADMIN.php'); 
             
       }
 

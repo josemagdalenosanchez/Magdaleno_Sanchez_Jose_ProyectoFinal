@@ -18,12 +18,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilos/1.css">  
-    <title>Gestion de Reparaciones</title>
+    <title>Gestion de Eventos</title>
   </head>
   <body>
     <div id="general">
         <div id="izda">
-        <h1>GESTION DE TAREAS</h1>    
+        <h1>GESTION DE EVENTOS</h1>    
         <table style="border:1px solid black">
           <thead>
             <tr>
@@ -46,19 +46,18 @@
       }
 
      if (isset($_POST['fecha'])) {
-       $query2 = "INSERT INTO Tareas VALUES (null,'".$_POST["desc"]."','".$_POST["fecha"]."')";
+       $query2 = "INSERT INTO Tareas VALUES (null,'".$_POST["desc"]."','".$_POST["fecha"]."','".$_POST["lug"]."','".$_POST["pre"]."')";
        $result = $connection->query($query2);
       
-                    
-       $query3 = "INSERT INTO Informe  VALUES (".$_POST["miembro"].",".$connection->insert_id.")";
-       $result = $connection->query($query3);
+                  
+       
       
      }
                      
  
       //MAKING A SELECT QUERY
       /* Consultas de selección que devuelven un conjunto de resultados */
-      if ($result = $connection->query("select t.Descripcion, t.FechaTarea, m.Nombre,t.IDTarea from Tareas t join Informe i on t.IDTarea = i.IDTarea join Miembros m on i.IDMiem = m.IDMiem;")) {
+      if ($result = $connection->query("select * from Eventos;")) {
 
          
         
@@ -67,11 +66,12 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-              echo "<td>".$obj->Descripcion."</td>";
-              echo "<td>".$obj->FechaTarea."</td>";
-              echo "<td>".$obj->Nombre."</td>";
+              echo "<td>".$obj->Organizador."</td>";
+              echo "<td>".$obj->FechaEvento."</td>";
+              echo "<td>".$obj->Lugar."</td>";
+              echo "<td>".$obj->Precio."</td>";
               echo "<td>".
-                   "<a href='borradotareas.php?id=".$obj->IDTarea."'><img src='../imagenes/borrar.jpg' width=15px heigth=15px>"."</td>";
+                   "<a href='borradoeventos.php?id=".$obj->IDEv."'><img src='../imagenes/borrar.jpg' width=15px heigth=15px>"."</td>";
               echo "</tr>";
       }
 
@@ -80,10 +80,10 @@
      <div id="dcha">
             
 
-        <h1>INSERTAR TAREAS</h1>   
+        <h1>INSERTAR EVENTO</h1>   
         <form method="post">
                 <div>
-                     <label for="mail">Descripcion:</label>
+                     <label for="mail">Organizador:</label>
                      <input type="text" name="desc" />
                 </div>
                 <div>
@@ -91,19 +91,14 @@
                      <input type="date" name="fecha" required/>
                 </div>
                 <div>
-                     <label for="mail">Miembro:</label>
-                     <select name="miembro" required>
-                    <?php
-                          $query2 ="select IDMiem, Nombre from Miembros;";
-                          $result=$connection->query($query2);    
-          
-                          while ($obj = $result->fetch_object()) {
-                          echo "<option name ='miembro' value='".$obj->IDMiem."'>".$obj->Nombre."</option>";
-                          
-                          
-                        }                   
-                           ?>
-                     </select>
+                     <label for="mail">Lugar:</label>
+                     <input type="text" name="lug" />
+                             
+                </div>
+                 <div>
+                     <label for="mail">Precio:</label>
+                     <input type="text" name="pre" />
+                             
                 </div>
                 <div>
                    

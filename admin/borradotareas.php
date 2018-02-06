@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrando...</title>
+    <title>Gestion de Reparaciones</title>
   </head>
   <body>
     <?php
@@ -30,11 +30,11 @@
       
       
       
-      $query2 = "delete from Miembros where IDMiem ='".$_GET['id']."'";
+      $query2 = "delete from Tareas where IDTarea ='".$_GET['id']."'";
       echo "$query2";
       if ($result = $connection->query($query2)) {  
           
-          header('Location: Usuarios-ADMIN.php'); 
+          header('Location: Tareas-ADMIN.php'); 
             
       }
 

@@ -18,7 +18,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilos/1.css">
-    <title>Gestion de Reparaciones</title>
+    <title>Tareas</title>
   </head>
   <body>
     <?php
