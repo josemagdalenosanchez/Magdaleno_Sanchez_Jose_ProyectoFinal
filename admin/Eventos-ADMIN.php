@@ -71,8 +71,8 @@
               echo "<td>".$obj->Lugar."</td>";
               echo "<td>".$obj->Precio."</td>";
               echo "<td>".
-                  "<a href='borradoeventos.php?id=".$obj->IDEv."'><img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
-                  "<a href='editadoeventos.php?id=".$obj->IDEv."'><img src='../imagenes/editar.png' width=28px heigth=28px>"
+                  "<a href='borradoeventos.php?id=".$obj->IDEv."'><img src='../imagenes/borrar.png' width=15px heigth=15px>".
+                  "<a href='editadoeventos.php?id=".$obj->IDEv."'><img src='../imagenes/editar.png' width=15px heigth=28px>"
                   ."</td>";
               echo "</tr>";
       }

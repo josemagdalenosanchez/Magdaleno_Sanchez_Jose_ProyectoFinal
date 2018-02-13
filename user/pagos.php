@@ -17,7 +17,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de Reparaciones</title>
+    <title>Pagos</title>
+    <link rel="stylesheet" href="../estilos/1.css">
   </head>
   <body>
     <?php
@@ -41,7 +42,8 @@
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table style="border:1px solid black">
+        <h1>MIS PAGOS</h1>  
+        <table style="border:1px solid black">
           <thead>
             <tr>
               <th>Concepto</th>

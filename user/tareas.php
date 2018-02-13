@@ -42,7 +42,7 @@
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          
+        <h1>MIS TAREAS</h1>  
         <table class="tablasolo">
           <thead>
             <tr>

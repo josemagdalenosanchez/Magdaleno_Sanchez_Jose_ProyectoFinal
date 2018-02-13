@@ -17,6 +17,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos/1.css">
     <title>Gestion de Usuarios</title>
   </head>
   <body>
@@ -67,9 +68,9 @@
               echo "<td>".$obj->Tipo."</td>";
               echo "<td>".$obj->EMail."</td>";
               echo "<td>".
-                   "<a href=borrado.php?id=$obj->IDMiem>"."<img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
+                   "<a href=borrado.php?id=$obj->IDMiem>"."<img src='../imagenes/borrar.png' width=15px heigth=15px>".
                    "<a href=aumentoprivilegios.php?id=$obj->IDMiem>"."<img src='../imagenes/aumentar.png' width=15px heigth=15px>".
-                   "<a href=reducir.php?id=$obj->IDMiem>"."<img src='../imagenes/degradar.gif' width=15px heigth=15px>".
+                   "<a href=reducir.php?id=$obj->IDMiem>"."<img src='../imagenes/degradar.gif' width=18px heigth=18px>".
                    "</td>";
               echo "</tr>";
           }

@@ -17,7 +17,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de Reparaciones</title>
+    <title>Eventos</title>
+    <link rel="stylesheet" href="../estilos/1.css">  
   </head>
   <body>
     <?php
@@ -41,6 +42,7 @@
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
+        <h1>MIS EVENTOS</h1>
         <div class="tablasolo">  
         <table style="border:1px solid black">
           <thead>

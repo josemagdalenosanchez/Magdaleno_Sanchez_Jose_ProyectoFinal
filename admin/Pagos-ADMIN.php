@@ -70,8 +70,8 @@
               echo "<td>".$obj->FechaPago."</td>";
               echo "<td>".$obj->Nombre."</td>";
               echo "<td>".
-                  "<a href='borradopagos.php?id=".$obj->IDPag."'><img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
-                  "<a href='editadopagos.php?id=".$obj->IDPag."'><img src='../imagenes/editar.png' width=28px heigth=28px>".
+                  "<a href='borradopagos.php?id=".$obj->IDPag."'><img src='../imagenes/borrar.png' width=15px heigth=15px>".
+                  "<a href='editadopagos.php?id=".$obj->IDPag."'><img src='../imagenes/editar.png' width=15px heigth=15px>".
                   "</td>";
               echo "</tr>";
       }

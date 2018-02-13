@@ -20,7 +20,7 @@
     <div id="general">
         <h1>PANEL DE CONTROL</h1>
         <div id="opciones">
-            <div id="tareas"><img src="../imagenes/martillo.jpg" width="100px" height="100px"><a href='tareas.php' class="boton">Tareas</a></div>
+            <div id="tareas"><img src="../imagenes/martillo.svg" width="100px" height="100px"><a href='tareas.php' class="boton">Tareas</a></div>
             <div id="eventos"><img src="../imagenes/espada.png" width="100px" height="100px"><a href='eventos.php' class="boton">Eventos</a></div>
             <div id="pagos"><img src="../imagenes/moneda.png" width="100px" height="100px"><a href='pagos.php' class="boton">Pagos</a></div>
             

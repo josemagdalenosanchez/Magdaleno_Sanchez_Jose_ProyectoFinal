@@ -71,13 +71,14 @@
               echo "<td>".$obj->FechaTarea."</td>";
               echo "<td>".$obj->Nombre."</td>";
               echo "<td>".
-                   "<a href='borradotareas.php?id=".$obj->IDTarea."'><img src='../imagenes/borrar.jpg' width=15px heigth=15px>".
-                   "<a href='editadotareas.php?id=".$obj->IDTarea."'><img src='../imagenes/editar.png' width=28px heigth=28px>".
+                   "<a href='borradotareas.php?id=".$obj->IDTarea."'><img src='../imagenes/borrar.png' width=15px heigth=15px>".
+                   "<a href='editadotareas.php?id=".$obj->IDTarea."'><img src='../imagenes/editar.png' width=15px heigth=15px>".
                    "</td>";
               echo "</tr>";
-      }
+            }
 
       ?>
+            </table>
      </div>
      <div id="dcha">
             
