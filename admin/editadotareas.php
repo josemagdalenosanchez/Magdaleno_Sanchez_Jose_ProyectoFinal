@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
+    <link rel="stylesheet" type="text/css" href="../estilos/1.css">
     <style>
       span {
         width: 100px;
@@ -33,7 +33,7 @@
         <?php
 
           //CREATING THE CONNECTION
-          $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+          $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD",3316);
           $connection->set_charset("uft8");
 
           //TESTING IF THE CONNECTION WAS RIGHT
@@ -69,6 +69,17 @@
             <legend>Información de la Tarea</legend>
             <span>Descripcion:</span><input value='<?php echo $descripcion; ?>' type="text" name="des" required><br>
             <span>Fecha de la Tarea:</span><input value='<?php echo $fecha; ?>'type="date" name="fecha" required><br>
+            <select name="miembro" required>
+                    <?php
+                          $query2 ="select IDMiem, Nombre from Miembros;";
+                          $result=$connection->query($query2);    
+          
+                          while ($obj = $result->fetch_object()) {
+                          echo "<option name ='miembro' value='".$obj->IDMiem."'>".$obj->Nombre."</option>";
+                          
+                          
+                        }                   
+                           ?>  
             <input type="hidden" name="codigo" value='<?php echo $codigo; ?>'>
             <p><input type="submit" value="Actualizar"></p>
           </fieldset>
@@ -82,11 +93,11 @@
         $codigo = $_POST["codigo"];
         $descripcion = $_POST["des"];
         $fecha = $_POST["fecha"];
-       
+        $miembro = $_POST["miembro"];
         
 
         //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+        $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD",3316);
         $connection->set_charset("uft8");
 
         //TESTING IF THE CONNECTION WAS RIGHT
@@ -97,16 +108,25 @@
 
         //MAKING A SELECT QUERY
         /* Consultas de selección que devuelven un conjunto de resultados */
+        if (isset($_POST['fecha'])) {
         $query="update Tareas set Descripcion='$descripcion',FechaTarea='$fecha'
         WHERE IDTarea='$codigo'";
-
-        echo $query;
+           
+        $query2="update Informe set IDMiem ='$miembro' WHERE IDTarea='$codigo'";
+        }
+            
         if ($result = $connection->query($query)) {
           echo "Datos actualizados";
           header('Location: Tareas-ADMIN.php');    
         } else {
           echo "Error al actualizar los datos";
         }
+        if ($result = $connection->query($query2)) {
+          echo "Datos actualizados";
+          header('Location: Tareas-ADMIN.php');    
+        } else {
+          echo "Error al actualizar los datos";
+        }    
 
         ?>
 

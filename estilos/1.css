@@ -3,7 +3,7 @@ background-color: #94c386
 }
 #general{
     margin: 100px auto;
-    width: 80%;
+    width: 100%;
       
 }
 
@@ -35,7 +35,7 @@ width: 500px;
 #dcha {
    
 float: right;
-width: 50%;  
+width: 25%
 }
 
 #izda {

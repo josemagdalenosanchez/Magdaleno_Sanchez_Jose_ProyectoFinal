@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
+    <link rel="stylesheet" href="../estilos/1.css">
     <style>
       span {
         width: 100px;
@@ -33,7 +33,7 @@
         <?php
 
           //CREATING THE CONNECTION
-          $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+          $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD");
           $connection->set_charset("uft8");
 
           //TESTING IF THE CONNECTION WAS RIGHT
@@ -72,6 +72,18 @@
             <span>Fecha del Evento:</span><input value='<?php echo $fechaEvento; ?>'type="date" name="fecha" required><br>
             <span>Lugar:</span><input type="text" value='<?php echo $lugar; ?>'name="lug" required><br>
             <span>Precio:</span><input type="text" name="prec" value='<?php echo $precio; ?>'><br>
+            <label for="miembro">Añadir Miembro:</label>
+            <select name="miembro" required>
+                    <?php
+                          $query2 ="select IDMiem, Nombre from Miembros;";
+                          $result=$connection->query($query2);    
+          
+                          while ($obj = $result->fetch_object()) {
+                          echo "<option name ='miembro' value='".$obj->IDMiem."'>".$obj->Nombre."</option>";
+                          
+                          
+                        }                   
+                           ?>    
             <input type="hidden" name="codigo" value='<?php echo $codigo; ?>'>
             <p><input type="submit" value="Actualizar"></p>
           </fieldset>
@@ -104,7 +116,7 @@
         $query="update Eventos set Organizador='$organizador',FechaEvento='$fecha',
         Lugar='$lugar',Precio='$precio'
         WHERE IDEv='$codigo'";
-
+         
         echo $query;
         if ($result = $connection->query($query)) {
           echo "Datos actualizados";

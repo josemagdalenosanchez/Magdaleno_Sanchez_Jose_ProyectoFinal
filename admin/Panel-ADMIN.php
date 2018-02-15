@@ -30,6 +30,7 @@
             <div id="eventos"><img src="../imagenes/espada.png" width="100px" height="100px"><a href='Eventos-ADMIN.php' class="boton">Gestion de Eventos</a></div>
             <div id="pagos"><img src="../imagenes/moneda.png" width="100px" height="100px"><a href='Pagos-ADMIN.php' class="boton">Gestion de Pagos</a></div>
             <div id="usuarios"><img src="../imagenes/usuario.svg" width="100px" height="100px"><a href='Usuarios-ADMIN.php' class="boton">Gestion de Usuarios</a></div>
+            <a href='../user/inicio.php'><img src='../imagenes/atras.svg' width=60px heigth=60px>
         </div>
     </div>
 </body>

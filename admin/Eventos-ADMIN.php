@@ -36,7 +36,7 @@
     <?php
 
       //CREATING THE CONNECTION
-      $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+      $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD");
       $connection->set_charset("utf8");
 
       //TESTING IF THE CONNECTION WAS RIGHT
@@ -75,9 +75,11 @@
                   "<a href='editadoeventos.php?id=".$obj->IDEv."'><img src='../imagenes/editar.png' width=15px heigth=28px>"
                   ."</td>";
               echo "</tr>";
+             
       }
 
       ?>
+                 
      </div>
      <div id="dcha">
             
@@ -100,16 +102,29 @@
                  <div>
                      <label for="mail">Precio:</label>
                      <input type="text" name="pre" />
-                             
+                      <label for="miembro">Añadir Miembro:</label>
+                      <select name="miembro" required>
+                    <?php
+                          $query2 ="select IDMiem, Nombre from Miembros;";
+                          $result=$connection->query($query2);    
+          
+                          while ($obj = $result->fetch_object()) {
+                          echo "<option name ='miembro' value='".$obj->IDMiem."'>".$obj->Nombre."</option>";
+                          
+                          
+                        }                   
+                           ?>       
                 </div>
+                
                 <div>
                    
                      <input type="submit" id="Acceder" name="Acceder" class="boton"/>
                   
                 </div>
-                </form> 
+                 
            
-        </div>    
+               
+        
       </div>
       <?php
 
@@ -121,5 +136,8 @@
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 
     ?>
+    <a href='Panel-ADMIN.php'><img src='../imagenes/atras.svg' width=60px heigth=60px>
+    </div>
+    </div>        
   </body>
 </html>

@@ -52,7 +52,7 @@
         <?php
             $host_db = "localhost";
             $user_db = "root";
-            $pass_db = "2asirtriana";
+            $pass_db = "Admin2015";
             $db_name = "MIDGARD";
             $tbl_name = "Miembros";
  

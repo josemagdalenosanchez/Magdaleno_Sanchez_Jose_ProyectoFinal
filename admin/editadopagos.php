@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
+    <link rel="stylesheet" type="text/css" href="../estilos/1.css">
     <style>
       span {
         width: 100px;
@@ -31,14 +31,16 @@
       <?php if (!isset($_POST["can"])) : ?>
 
         <?php
+            
 
           //CREATING THE CONNECTION
-          $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+          $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD",3316);
           $connection->set_charset("uft8");
 
           //TESTING IF THE CONNECTION WAS RIGHT
           if ($connection->connect_errno) {
               printf("Connection failed: %s\n", $connection->connect_error);
+              echo "HOLA";
               exit();
           }
 
@@ -93,7 +95,7 @@
         
 
         //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+        $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD",3316);
         $connection->set_charset("uft8");
 
         //TESTING IF THE CONNECTION WAS RIGHT

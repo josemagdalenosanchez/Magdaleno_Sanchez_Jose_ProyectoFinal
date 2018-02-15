@@ -15,7 +15,7 @@
         //FORM SUBMITTED
         if (isset($_POST["user"])) {
           //CREATING THE CONNECTION
-          $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+          $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD",3316);
           //TESTING IF THE CONNECTION WAS RIGHT
           if ($connection->connect_errno) {
               printf("Connection failed: %s\n", $connection->connect_error);

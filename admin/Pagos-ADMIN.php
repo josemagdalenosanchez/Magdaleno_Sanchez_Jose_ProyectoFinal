@@ -37,7 +37,7 @@
     <?php
 
       //CREATING THE CONNECTION
-      $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+      $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD",3316);
       $connection->set_charset("utf8");
 
       //TESTING IF THE CONNECTION WAS RIGHT
@@ -129,5 +129,7 @@
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 
     ?>
+    <a href='Panel-ADMIN.php'><img src='../imagenes/atras.svg' width=60px heigth=60px> 
+        
   </body>
 </html>
