@@ -116,7 +116,7 @@
         
 
         //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "2asirtriana", "MIDGARD");
+        $connection = new mysqli("localhost", "root", "Admin2015", "MIDGARD");
         $connection->set_charset("uft8");
 
         //TESTING IF THE CONNECTION WAS RIGHT
@@ -130,14 +130,20 @@
         $query="update Eventos set Organizador='$organizador',FechaEvento='$fecha',
         Lugar='$lugar',Precio='$precio'
         WHERE IDEv='$codigo'";
-         
-        echo $query;
+        $query3="update Asisten set IDMiem ='$miembro' WHERE IDEv='$codigo'"; 
+        
         if ($result = $connection->query($query)) {
           echo "Datos actualizados";
           header('Location: Eventos-ADMIN.php');    
         } else {
           echo "Error al actualizar los datos";
         }
+        if ($result = $connection->query($query3)) {
+          echo "Datos actualizados";
+          header('Location: Eventos-ADMIN.php');    
+        } else {
+          echo "Error al actualizar los datos";
+        }    
 
         ?>
 
