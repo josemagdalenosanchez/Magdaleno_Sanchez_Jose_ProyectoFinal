@@ -120,6 +120,7 @@
                 </form> 
            
         </div>
+        <a href='Panel-ADMIN.php'><img src='../imagenes/atras.svg' width=60px heigth=60px> 
       </div>    
       <?php
 
@@ -131,7 +132,7 @@
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 
     ?>
-    <a href='Panel-ADMIN.php'><img src='../imagenes/atras.svg' width=60px heigth=60px> 
+    
         
   </body>
 </html>

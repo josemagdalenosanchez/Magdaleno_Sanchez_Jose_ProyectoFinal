@@ -54,7 +54,7 @@
           //TESTING IF THE CONNECTION WAS RIGHT
           if ($connection->connect_errno) {
               printf("Connection failed: %s\n", $connection->connect_error);
-              echo "HOLA";
+              echo "Fallo en la conexion";
               exit();
           }
 
@@ -62,7 +62,7 @@
           /* Consultas de selección que devuelven un conjunto de resultados */
           $query="SELECT p.*, m.Nombre from Pagos p join Miembros m on p.IDMiem = m.IDMiem where IDPag ='".$_GET["id"]."'";
 
-        echo $query;
+        
           if ($result = $connection->query($query))  {
 
             $obj = $result->fetch_object();

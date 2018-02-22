@@ -61,7 +61,7 @@
         <h1>PROGRAMA DE GESTION MIDGARD</h1>
         <div id="banner">
             <div id="imagen">
-                <img src="../imagenes/midgard-logo.jpg" alt="Banner" height="500" width="500">     
+                <img src="../imagenes/a.png" alt="Banner" height="500" width="500">     
                 <div id="bregistro"><a href="registro.php" target="_blank" class="boton">¡REGISTRATE YA!</a></div>
             </div>
             <div id="datos">

@@ -40,7 +40,7 @@
          
 
       ?>
-
+      <div id="general">
           <!-- PRINT THE TABLE AND THE HEADER -->
         <h1>GESTION DE USUARIOS</h1>  
         <table style="border:1px solid black">
@@ -54,7 +54,9 @@
               <th>E-Mail</th>
               <th>ACCIONES</th>    
           </thead>
-
+          <a href='Panel-ADMIN.php'><img src='../imagenes/atras.svg' width=60px heigth=60px>
+          
+     </div>
       <?php
 
           //FETCHING OBJECTS FROM THE RESULT SET
@@ -75,7 +77,7 @@
                    "</td>";
               echo "</tr>";
           }
-
+       
           //Free the result. Avoid High Memory Usages
           $result->close();
           unset($obj);
@@ -84,6 +86,6 @@
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 
     ?>
-    <a href='Panel-ADMIN.php'><img src='../imagenes/atras.svg' width=60px heigth=60px>           
+             
   </body>
 </html>

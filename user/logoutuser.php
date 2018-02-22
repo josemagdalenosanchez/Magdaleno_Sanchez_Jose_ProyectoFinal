@@ -9,7 +9,7 @@ session_start();
     } 
     else {      
         session_destroy();
-        header("Location: panel.php");
+        header("Location: inicio.php");
     }
 session_destroy();
 header("Location: ../user/inicio.php");

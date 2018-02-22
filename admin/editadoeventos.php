@@ -99,7 +99,7 @@
                         }                   
                            ?>    
             <input type="hidden" name="codigo" value='<?php echo $codigo; ?>'>
-            <p><input type="submit" value="Actualizar"></p>
+            <p><input type="submit" value="Actualizar" class="boton"></p>
           </fieldset>
         </form>
 
