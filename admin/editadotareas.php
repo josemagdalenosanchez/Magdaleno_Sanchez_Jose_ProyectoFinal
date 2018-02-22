@@ -1,3 +1,17 @@
+<?php 
+    session_start();
+
+    if (isset($_SESSION["user"])) {
+        if ($_SESSION["tipo"]!="Administrador") {
+            session_destroy();
+            header("Location: inicio.php");        
+        }
+    } 
+    else {      
+        session_destroy();
+        header("Location: ../user/inicio.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

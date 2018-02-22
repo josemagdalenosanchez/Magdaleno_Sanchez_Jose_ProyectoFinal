@@ -4,12 +4,12 @@
     if (isset($_SESSION["user"])) {
         if ($_SESSION["tipo"]!="Administrador") {
             session_destroy();
-            header("Location: inicio.php");        
+            header("Location: ../user/inicio.php");        
         }
     } 
     else {      
         session_destroy();
-        header("Location: panel.php");
+        header("Location: ../user/inicio.php");
     }
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilos/1.css">  
+    <link rel="stylesheet" href="../estilos/2.css">  
     <title>Gestion de Pagos</title>
   </head>
   <body>
@@ -78,7 +78,9 @@
 
       ?>
      
-     <div id="dcha">
+            </table>   
+      </div>
+        <div id="dcha">
             
 
         <h1>INSERTAR PAGO</h1>   
@@ -117,8 +119,8 @@
                 </div>
                 </form> 
            
-        </div>    
-      </div>
+        </div>
+      </div>    
       <?php
 
           //Free the result. Avoid High Memory Usages

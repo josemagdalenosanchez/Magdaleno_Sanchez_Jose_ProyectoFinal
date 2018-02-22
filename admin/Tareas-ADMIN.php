@@ -9,7 +9,7 @@
     } 
     else {      
         session_destroy();
-        header("Location: panel.php");
+        header("Location: ../user/inicio.php");
     }
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilos/1.css">  
+    <link rel="stylesheet" href="../estilos/2.css">  
     <title>Gestion de Reparaciones</title>
   </head>
   <body>
@@ -80,7 +80,7 @@
       ?>
             </table>
      </div>
-     <div id="dcha">
+        <div id="dchat">
             
 
         <h1>INSERTAR TAREAS</h1>   

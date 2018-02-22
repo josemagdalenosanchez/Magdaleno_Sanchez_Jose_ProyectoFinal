@@ -32,20 +32,6 @@ margin-left: 100px;
 width: 500px;   
 }
 
-#dcha {
-   
-float: right;
-width: 25%
-}
-
-#izda {
-float: left;
-width: 50%;
-}
-
-
-
-
 table, th, td {
    margin: 0px auto;   
    border: 1px solid black;

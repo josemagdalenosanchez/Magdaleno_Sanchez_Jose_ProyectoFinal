@@ -9,7 +9,7 @@
     } 
     else {      
         session_destroy();
-        header("Location: panel.php");
+        header("Location: ../user/inicio.php");
     }
 ?>
 <!DOCTYPE html>
@@ -42,7 +42,8 @@
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table style="border:1px solid black">
+        <h1>GESTION DE USUARIOS</h1>  
+        <table style="border:1px solid black">
           <thead>
             <tr>
               <th>Nombre</th>

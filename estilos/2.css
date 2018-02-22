@@ -1,0 +1,36 @@
+body{
+background-color: #94c386    
+}
+#general{
+    margin: 30px auto;
+    width: 100%;
+    height: 300px
+      
+}
+
+#dcha {
+float: right;
+width: 45%;
+margin-left: 500px;    
+margin-top: -180px;    
+    
+}
+
+#dchat
+float: right;
+width: 45%;
+margin-left: 500px;    
+margin-top: -160px; 
+
+#izda {
+float: left;
+width: 45%;
+}
+
+table, th, td {
+     
+   border: 1px solid black;
+   text-align: left;
+   background-color: #003311;
+   color: white;    
+}

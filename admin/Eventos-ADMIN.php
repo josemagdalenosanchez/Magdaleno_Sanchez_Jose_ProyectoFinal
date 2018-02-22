@@ -9,7 +9,7 @@
     } 
     else {      
         session_destroy();
-        header("Location: panel.php");
+        header("Location: ../user/inicio.php");
     }
 ?>
 <!DOCTYPE html>
@@ -17,12 +17,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilos/1.css">  
+    <link rel="stylesheet" href="../estilos/2.css">  
     <title>Gestion de Eventos</title>
   </head>
   <body>
     <div id="general">
-        <div id="izda">
+     <div id="izda">
         <h1>GESTION DE EVENTOS</h1>    
         <table style="border:1px solid black">
           <thead>
@@ -79,7 +79,7 @@
       }
 
       ?>
-                 
+         </table>       
      </div>
      <div id="dcha">
             
@@ -101,7 +101,7 @@
                 </div>
                  <div>
                      <label for="mail">Precio:</label>
-                     <input type="text" name="pre" />
+                     <input type="text" name="pre" /><br>
                       <label for="miembro">Añadir Miembro:</label>
                       <select name="miembro" required>
                     <?php
@@ -124,8 +124,9 @@
                  
            
                
-        
-      </div>
+                     </form>
+      
+     </div>        
       <?php
 
           //Free the result. Avoid High Memory Usages
