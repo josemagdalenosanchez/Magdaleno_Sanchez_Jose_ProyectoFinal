@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    <p>Este proyecto ha sido creado por José Magdaleno Sánchez</p>	
     <div id="general">
         <h1>PANEL DE CONTROL</h1>
         <div id="opciones">
